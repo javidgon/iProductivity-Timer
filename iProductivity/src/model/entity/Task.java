@@ -5,7 +5,7 @@
 
 package model.entity;
 
-import java.util.Date;
+
 
 /**
  *
@@ -28,4 +28,8 @@ public interface Task extends Entidad{
     public String getDone();
 
     public void setDone(String i);
+
+    public String getValue();
+
+    public void setValue(String value);
 }

@@ -61,7 +61,7 @@ public class TaskTableAndComboModel implements TableModel, ComboBoxModel {
     }
 
     public int getColumnCount() {
-        return 1; //ya que tendremos tres valores a mostrar por contacto
+        return 2; //ya que tendremos tres valores a mostrar por contacto
     }
 
     public String getColumnName(int columnIndex) {
@@ -69,6 +69,9 @@ public class TaskTableAndComboModel implements TableModel, ComboBoxModel {
         switch (columnIndex) {
             case 0:
                 name = "Description";
+                break;
+            case 1:
+                name = "Time";
                 break;
         }
         return name;
@@ -90,7 +93,7 @@ public class TaskTableAndComboModel implements TableModel, ComboBoxModel {
                 value = contacto.getDescription();
                 break;
             case 1:
-                value = contacto.getType();
+                value = contacto.getValue();
                 break;
         }
         return value;

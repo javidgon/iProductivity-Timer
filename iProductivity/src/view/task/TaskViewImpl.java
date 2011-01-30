@@ -20,7 +20,7 @@ import javax.swing.JLabel;
 import model.TaskModel;
 import model.entity.Task;
 import view.AbstractViewImp;
-import view.tasksAccomplished.TasksAccomplishedViewImpl;
+
 
 
 /**
@@ -47,7 +47,10 @@ public class TaskViewImpl extends AbstractViewImp<TaskController, TaskModel> imp
 
 
     }
+public void init(){
 
+    initComponents();
+}
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -84,6 +87,14 @@ public class TaskViewImpl extends AbstractViewImp<TaskController, TaskModel> imp
         jLabel10 = new javax.swing.JLabel();
         jLabelCounter = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabelMoney = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabelEarnings = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabelMinutes = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(1070, 600));
 
@@ -98,19 +109,19 @@ public class TaskViewImpl extends AbstractViewImp<TaskController, TaskModel> imp
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18));
         jLabel1.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel1.setText("Próximo");
+        jLabel1.setText("   ");
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18));
         jLabel2.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel2.setText("Proyecto");
+        jLabel2.setText("Category 2");
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18));
         jLabel3.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel3.setText("En espera");
+        jLabel3.setText("Category 4");
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18));
         jLabel4.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel4.setText("Algún día");
+        jLabel4.setText("Category 3");
 
         jTableProyecto.setModel(tableModelProyecto);
         jTableProyecto.setSize(new java.awt.Dimension(450, 50));
@@ -169,7 +180,7 @@ public class TaskViewImpl extends AbstractViewImp<TaskController, TaskModel> imp
         jTextAreaDescription.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextAreaDescription);
 
-        jLabelCongratulations.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabelCongratulations.setFont(new java.awt.Font("Lucida Grande", 0, 12));
         jLabelCongratulations.setForeground(new java.awt.Color(255, 0, 0));
         jLabelCongratulations.setText("  ");
 
@@ -181,42 +192,36 @@ public class TaskViewImpl extends AbstractViewImp<TaskController, TaskModel> imp
 
         jLabel11.setText("seconds");
 
+        jLabel12.setFont(new java.awt.Font("Lucida Grande", 1, 13));
+        jLabel12.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel12.setText("You're losing money...");
+
+        jLabel13.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel13.setText("euros");
+
+        jLabelMoney.setForeground(new java.awt.Color(153, 0, 0));
+        jLabelMoney.setText("  ");
+
+        jLabel14.setFont(new java.awt.Font("Lucida Grande", 1, 14));
+        jLabel14.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel14.setText("You've won ");
+
+        jLabelEarnings.setForeground(new java.awt.Color(0, 51, 255));
+        jLabelEarnings.setText("0");
+
+        jLabel16.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel16.setText("euros!");
+
+        jLabel15.setText("Price:");
+
+        jLabelMinutes.setText("  ");
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(layout.createSequentialGroup()
-                        .add(170, 170, 170)
-                        .add(jLabel4)
-                        .add(258, 258, 258)
-                        .add(jLabel3)
-                        .add(176, 176, 176)
-                        .add(jLabel5))
-                    .add(layout.createSequentialGroup()
-                        .add(40, 40, 40)
-                        .add(jScrollPane5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 330, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(20, 20, 20)
-                        .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 340, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(50, 50, 50)
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(layout.createSequentialGroup()
-                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(layout.createSequentialGroup()
-                                        .add(30, 30, 30)
-                                        .add(jLabelID))
-                                    .add(jLabel7))
-                                .add(13, 13, 13)
-                                .add(jLabelType))
-                            .add(layout.createSequentialGroup()
-                                .add(jLabel8)
-                                .add(20, 20, 20)
-                                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(layout.createSequentialGroup()
-                                .add(jLabel9)
-                                .add(26, 26, 26)
-                                .add(jLabelCreation, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 170, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
                     .add(layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(layout.createSequentialGroup()
@@ -229,21 +234,75 @@ public class TaskViewImpl extends AbstractViewImp<TaskController, TaskModel> imp
                                 .add(jLabel10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(jLabelCounter)
-                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(layout.createSequentialGroup()
                                         .add(40, 40, 40)
-                                        .add(jLabel1)
-                                        .add(288, 288, 288)
-                                        .add(jLabel2))
+                                        .add(jLabel1))
                                     .add(layout.createSequentialGroup()
                                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(jLabel11)
-                                        .add(187, 187, 187)
-                                        .add(jLabelCongratulations, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                        .add(jLabel11)))
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(layout.createSequentialGroup()
+                                        .add(90, 90, 90)
+                                        .add(jLabelCongratulations, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE))
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(jLabel2)
+                                        .add(157, 157, 157)))))
                         .add(40, 40, 40)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(layout.createSequentialGroup()
+                                .add(jLabel15)
+                                .add(18, 18, 18)
+                                .add(jLabelMinutes))
                             .add(jLabel6)
-                            .add(jPanelCliente, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 330, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                            .add(jPanelCliente, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 330, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                    .add(layout.createSequentialGroup()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(layout.createSequentialGroup()
+                                .add(170, 170, 170)
+                                .add(jLabel4)
+                                .add(258, 258, 258)
+                                .add(jLabel3))
+                            .add(layout.createSequentialGroup()
+                                .add(40, 40, 40)
+                                .add(jScrollPane5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 330, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(20, 20, 20)
+                                .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 340, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .add(40, 40, 40)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jLabel5)
+                            .add(layout.createSequentialGroup()
+                                .add(10, 10, 10)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(layout.createSequentialGroup()
+                                        .add(jLabel12)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(jLabelMoney, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 85, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(jLabel13))
+                                    .add(layout.createSequentialGroup()
+                                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(layout.createSequentialGroup()
+                                                .add(30, 30, 30)
+                                                .add(jLabelID))
+                                            .add(jLabel7))
+                                        .add(13, 13, 13)
+                                        .add(jLabelType))
+                                    .add(layout.createSequentialGroup()
+                                        .add(jLabel8)
+                                        .add(20, 20, 20)
+                                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(layout.createSequentialGroup()
+                                        .add(jLabel9)
+                                        .add(26, 26, 26)
+                                        .add(jLabelCreation, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 170, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(layout.createSequentialGroup()
+                                        .add(jLabel14)
+                                        .add(18, 18, 18)
+                                        .add(jLabelEarnings)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(jLabel16)))))))
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -260,13 +319,17 @@ public class TaskViewImpl extends AbstractViewImp<TaskController, TaskModel> imp
                                 .add(jLabelCongratulations))
                             .add(layout.createSequentialGroup()
                                 .add(30, 30, 30)
-                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                                     .add(jLabel1)
                                     .add(jLabel2))))
                         .add(8, 8, 8))
                     .add(layout.createSequentialGroup()
-                        .add(jLabel6)
-                        .add(18, 18, 18)))
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel15)
+                            .add(jLabelMinutes))
+                        .add(18, 18, 18)
+                        .add(jLabel6)))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jScrollPane6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 200, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 200, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -293,7 +356,18 @@ public class TaskViewImpl extends AbstractViewImp<TaskController, TaskModel> imp
                         .add(26, 26, 26)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jLabel9)
-                            .add(jLabelCreation)))))
+                            .add(jLabelCreation))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabelMoney)
+                            .add(jLabel12)
+                            .add(jLabel13))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel14)
+                            .add(jLabelEarnings)
+                            .add(jLabel16))))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -346,6 +420,11 @@ public class TaskViewImpl extends AbstractViewImp<TaskController, TaskModel> imp
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -357,7 +436,10 @@ public class TaskViewImpl extends AbstractViewImp<TaskController, TaskModel> imp
     private javax.swing.JLabel jLabelCongratulations;
     private javax.swing.JLabel jLabelCounter;
     private javax.swing.JLabel jLabelCreation;
+    private javax.swing.JLabel jLabelEarnings;
     private javax.swing.JLabel jLabelID;
+    private javax.swing.JLabel jLabelMinutes;
+    private javax.swing.JLabel jLabelMoney;
     private javax.swing.JLabel jLabelType;
     private javax.swing.JPanel jPanelCliente;
     private javax.swing.JScrollPane jScrollPane1;
@@ -377,6 +459,10 @@ public JLabel getLabelCongratulations(){
     return jLabelCongratulations;
 }
 
+    public TaskTableAndComboModel getTableModelProyecto() {
+        return tableModelProyecto;
+    }
+
 public JLabel getLabelCounter(){
 
     return jLabelCounter;
@@ -388,16 +474,18 @@ public JLabel getLabelCounter(){
          tableModelProyecto.setTasks(getModel().listar("Proyecto"));
            tableModelAlgunDia.setTasks(getModel().listar("Algún día"));
              tableModelEnEspera.setTasks(getModel().listar("En espera"));
+             System.out.println(this.jLabel1.getText());
              jTableProximo1.clearSelection();
              jTableAlgunDia1.clearSelection();
              jTableEnEspera.clearSelection();
              jTableProyecto.clearSelection();
     }
 
-    protected void fireNuevoTaskGesture(String description, String type){
+    protected void fireNuevoTaskGesture(String description, String type,String value){
         List<String> datos = new ArrayList<String>();
         datos.add(description);
         datos.add(type);
+        datos.add(value);
         getController().nuevaEntidadGesture(datos);
 
 
@@ -419,11 +507,27 @@ public JLabel getLabelCounter(){
         }, 0, 1000);
     }
 
+       public void ticks(final float money){
 
-    protected void fireActualizaTaskGesture(String description, String type) {
+        final Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            int i = 0;
+
+            public void run() {
+                jLabelMoney.setText(String.valueOf((i++)*money));
+                /*if (i > valor)
+                    timer.cancel();*/
+            }
+
+        }, 0, 1000);
+    }
+
+
+    protected void fireActualizaTaskGesture(String description, String type,String value) {
         List<String> datos = new ArrayList<String>();
         datos.add(description);
         datos.add(type);
+        datos.add(value);
         getController().actualizaEntidadGesture(datos);
 
     }
@@ -432,17 +536,63 @@ public JLabel getLabelCounter(){
         getController().borraEntidadGesture(description);
 
     }
- protected void fireRealizarTaskGesture(String description,String type) {
-     List l = new ArrayList();
-     l.add(description);
-     l.add(type);
+ protected void fireRealizarTaskGesture(String description) {
 
-     getController().realizarEntidadGesture(l);
+     getController().realizarEntidadGesture(description);
 
     }
 
+    public JLabel getjLabelEarnings() {
+        return jLabelEarnings;
+    }
+
+    public void setjLabelEarnings(JLabel jLabelEarnings) {
+        this.jLabelEarnings = jLabelEarnings;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+
     public TaskViewImplInternal getPaneltask() {
         return paneltask;
+    }
+
+    public JLabel getjLabelMinutes() {
+        return jLabelMinutes;
+    }
+
+    public void setjLabelMinutes(JLabel jLabelMinutes) {
+        this.jLabelMinutes = jLabelMinutes;
     }
 
 

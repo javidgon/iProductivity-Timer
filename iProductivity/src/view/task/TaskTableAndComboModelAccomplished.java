@@ -36,7 +36,7 @@ public class TaskTableAndComboModelAccomplished implements TableModel, ComboBoxM
         this.setTasks(modelo.listDone(i));
     }
 
-        public
+       
 
     public List<Task> getTasks() {
         return Tasks;
@@ -66,7 +66,7 @@ public class TaskTableAndComboModelAccomplished implements TableModel, ComboBoxM
     }
 
     public int getColumnCount() {
-        return 1; //ya que tendremos tres valores a mostrar por contacto
+        return 2; //ya que tendremos tres valores a mostrar por contacto
     }
 
     public String getColumnName(int columnIndex) {
@@ -74,6 +74,9 @@ public class TaskTableAndComboModelAccomplished implements TableModel, ComboBoxM
         switch (columnIndex) {
             case 0:
                 name = "Description";
+                break;
+            case 1:
+                name = "Creation_date";
                 break;
         }
         return name;
@@ -95,7 +98,7 @@ public class TaskTableAndComboModelAccomplished implements TableModel, ComboBoxM
                 value = contacto.getDescription();
                 break;
             case 1:
-                value = contacto.getType();
+                value = contacto.getCreation_date();
                 break;
         }
         return value;

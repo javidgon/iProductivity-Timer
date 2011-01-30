@@ -7,6 +7,7 @@ import model.*;
 import view.task.TaskView;
 import view.task.TaskViewImpl;
 import view.GlobalView;
+import view.options.OptionsViewImpl;
 import view.tasksAccomplished.TasksAccomplishedViewImpl;
 import view.welcome.WelcomeViewImpl;
 
@@ -25,6 +26,7 @@ public class Main {
         TaskView taskView1 =new TaskViewImpl();
         WelcomeViewImpl welcomeView = new WelcomeViewImpl(taskView1);
         TasksAccomplishedViewImpl tasksAccomplished= new TasksAccomplishedViewImpl(taskView1);
+        OptionsViewImpl optionsView = new OptionsViewImpl(taskView1);
         List<TaskView> taskViews= new ArrayList<TaskView>();
         taskViews.add(taskView1);
 
@@ -33,7 +35,7 @@ public class Main {
 
         taskController.setup(taskModel,taskViews);
 
-        GlobalView vista1=new GlobalView(taskView1,welcomeView,tasksAccomplished);
+        GlobalView vista1=new GlobalView(taskView1,welcomeView,tasksAccomplished,optionsView);
         vista1.display();
     }
 

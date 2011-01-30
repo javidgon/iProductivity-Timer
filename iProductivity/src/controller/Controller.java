@@ -21,7 +21,7 @@ public interface Controller<M extends Model, V extends View, D extends Serializa
     void nuevaEntidadGesture(List<D> datos);
     void borraEntidadGesture(D pk);
     void actualizaEntidadGesture(List<D> datos);
-
+    void realizarEntidadGesture(D pk);
     void fireDataModelChanged();
 
 }

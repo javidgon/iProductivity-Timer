@@ -13,6 +13,7 @@ package view;
 
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import view.options.OptionsViewImpl;
 import view.task.TaskView;
 import view.tasksAccomplished.TasksAccomplishedViewImpl;
 import view.welcome.WelcomeViewImpl;
@@ -25,16 +26,19 @@ public class GlobalView extends javax.swing.JFrame {
     private TaskView taskView;
     private WelcomeViewImpl welcomeView;
     private TasksAccomplishedViewImpl tasksAccomplished;
+    private OptionsViewImpl optionsView;
 
     /** Creates new form VistaGlobal */
-    public GlobalView(TaskView taskView,WelcomeViewImpl welcomeView, TasksAccomplishedViewImpl tasksAccomplished) {
+    public GlobalView(TaskView taskView,WelcomeViewImpl welcomeView, TasksAccomplishedViewImpl tasksAccomplished, OptionsViewImpl optionsView) {
         this.taskView=taskView;
         this.welcomeView = welcomeView;
         this.tasksAccomplished = tasksAccomplished;
+        this.optionsView = optionsView;
         initComponents();
         this.jTabbedPane1.add("Welcome",this.welcomeView);
-        this.jTabbedPane1.add("GTD",(JPanel)taskView);
+        this.jTabbedPane1.add("Taks",(JPanel)taskView);
         this.jTabbedPane1.add("Tasks Accomplished",this.tasksAccomplished);
+        this.jTabbedPane1.add("Options",this.optionsView);
         this.setTitle("iProductivity App");
     }
 

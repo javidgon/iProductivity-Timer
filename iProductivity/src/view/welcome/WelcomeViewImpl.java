@@ -39,7 +39,11 @@ public class WelcomeViewImpl extends javax.swing.JPanel {
         jTextFieldTime = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextFieldEuros = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
+        setEnabled(false);
         setMinimumSize(new java.awt.Dimension(21, 21));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -59,15 +63,28 @@ public class WelcomeViewImpl extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, -1, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, -1, -1));
 
-        jLabel3.setText("seconds");
+        jLabel3.setText("minutes");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 260, -1, -1));
+
+        jLabel4.setText("Set how much money you use to earn every hour:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
+
+        jTextFieldEuros.setText("7");
+        add(jTextFieldEuros, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 280, 70, -1));
+
+        jLabel5.setText("euros");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 290, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        view.contador(Integer.parseInt(this.jTextFieldTime.getText()));
+        int minutes = Integer.parseInt(this.jTextFieldTime.getText());
+        view.contador(minutes*60);
+        float price = Integer.parseInt(this.jTextFieldEuros.getText());
+        view.ticks(price/3600);
+        view.getjLabelMinutes().setText(String.valueOf((int)price));
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -76,6 +93,9 @@ public class WelcomeViewImpl extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField jTextFieldEuros;
     private javax.swing.JTextField jTextFieldTime;
     // End of variables declaration//GEN-END:variables
 

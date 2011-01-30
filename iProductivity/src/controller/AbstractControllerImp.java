@@ -61,6 +61,12 @@ public abstract class AbstractControllerImp<M extends Model, V extends View, D e
         getModel().actualizarEntidad(entidad);
     }
 
+
+    public void realizarEntidadGesture(D pk) {
+        Entidad entidad=generaEntidad(pk);
+        getModel().realizarEntidad(entidad);
+    }
+
     public void fireDataModelChanged() {
         for(V view:views)
             view.dataModelChanged();

@@ -24,13 +24,14 @@ import model.persistence.TaskDAO;
  */
 public class TaskDAOJDBC implements TaskDAO{
  public void create(Task entidad) {
-        String SQL = "Insert into task (Description, Type, Creation_date, Done) values(?,?,?,?)";
+        String SQL = "Insert into task (Description, Type, Creation_date, Done, Time) values(?,?,?,?,?)";
         try {
             PreparedStatement p = (PreparedStatement) Persistence.createConnection().prepareStatement(SQL);
             p.setString(1, entidad.getDescription());
             p.setString(2, entidad.getType());
             p.setString(3, entidad.getCreation_date());
             p.setString(4, entidad.getDone());
+            p.setString(5, entidad.getValue());
             p.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -63,11 +64,12 @@ public class TaskDAOJDBC implements TaskDAO{
             PreparedStatement p = (PreparedStatement) Persistence.createConnection().prepareStatement(SQL);
             p.setString(1, pk);
             ResultSet res = p.executeQuery();
-            String description, type,creation_date;
+            String description, type,creation_date,value;
             if (res.next()) {
                 description=res.getString("Description");
                 type = res.getString("Type");
                 creation_date = res.getString("Creation_date");
+                value = res.getString("Time");
                 Task = new TaskImpl(description, type,creation_date);
             }
         } catch (SQLException e) {
@@ -79,12 +81,13 @@ public class TaskDAOJDBC implements TaskDAO{
     }
 
     public void update(Task entidad) {
-        String sql = "UPDATE task SET Description = ?, Type = ? WHERE Description = ?";
+        String sql = "UPDATE task SET Description = ?, Type = ?, Time = ? WHERE Description = ?";
         try {
             PreparedStatement ps = (PreparedStatement) Persistence.createConnection().prepareStatement(sql);
             ps.setString(1, entidad.getDescription());
             ps.setString(2, entidad.getType());
-            ps.setString(3, entidad.getDescription());
+            ps.setString(3, entidad.getValue());
+            ps.setString(4, entidad.getDescription());
             ps.executeUpdate();
         }
         catch(SQLException e) {
@@ -136,12 +139,13 @@ public class TaskDAOJDBC implements TaskDAO{
              PreparedStatement p = (PreparedStatement) Persistence.createConnection().prepareStatement(SQL);
             p.setString(1, filterType);
             ResultSet res = p.executeQuery();
-            String description, type,creation_date;
+            String description, type,creation_date,value;
             while(res.next()) {
                 description=res.getString("Description");
                 type = res.getString("Type");
                 creation_date = res.getString("Creation_date");
-                task = new TaskImpl(description, type,creation_date);
+                value = res.getString("Time");
+                task = new TaskImpl(description, type,creation_date,value);
                 tasks.add(task);
             }
             }
@@ -162,11 +166,12 @@ public class TaskDAOJDBC implements TaskDAO{
             PreparedStatement p = (PreparedStatement) Persistence.createConnection().prepareStatement(SQL);
             p.setString(1, "1");
             ResultSet res = p.executeQuery();
-            String description, type,creation_date;
+            String description, type,creation_date,value;
             while(res.next()) {
                 description=res.getString("Description");
                 type = res.getString("Type");
                 creation_date = res.getString("Creation_date");
+                value = res.getString("Time");
                 task = new TaskImpl(description, type,creation_date);
                 tasks.add(task);
             }
