@@ -15,6 +15,8 @@ import java.util.Date;
  */
 public class TaskImpl implements Task{
 
+    // Definición de los atributos y métodos de la entidad TASK.
+
     private String description;
     private String type;
     private String creation_date;
@@ -47,6 +49,8 @@ public class TaskImpl implements Task{
     this.setDescription(description);
 
    }
+
+   // Métodos GET y SET.
 
     public String getValue() {
         return value;

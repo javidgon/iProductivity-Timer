@@ -9,6 +9,8 @@ import view.View;
 
 public interface Controller<M extends Model, V extends View, D extends Serializable> {
 
+    // Interfaz genérica del contolador.
+
     void setup(M model, List<V> view);
     void start();
 
@@ -21,7 +23,6 @@ public interface Controller<M extends Model, V extends View, D extends Serializa
     void nuevaEntidadGesture(List<D> datos);
     void borraEntidadGesture(D pk);
     void actualizaEntidadGesture(List<D> datos);
-    void realizarEntidadGesture(D pk);
     void fireDataModelChanged();
 
 }

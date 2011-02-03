@@ -10,6 +10,8 @@ import view.View;
 
 public abstract class AbstractControllerImp<M extends Model, V extends View, D extends Serializable> implements Controller<M, V, D> {
 
+    // Implementaciones abstractas del controlador genérico.
+
     private List<V> views=new ArrayList<V>();
     private M model;
 
@@ -61,11 +63,6 @@ public abstract class AbstractControllerImp<M extends Model, V extends View, D e
         getModel().actualizarEntidad(entidad);
     }
 
-
-    public void realizarEntidadGesture(D pk) {
-        Entidad entidad=generaEntidad(pk);
-        getModel().realizarEntidad(entidad);
-    }
 
     public void fireDataModelChanged() {
         for(V view:views)

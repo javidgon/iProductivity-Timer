@@ -8,6 +8,8 @@ import model.entity.Entidad;
 
 public interface Model<C extends Controller, T extends Entidad, K extends Serializable> {
 
+    // Interfaz genérica del modelo.
+
     C getController();
     void setController(C controller);
 
@@ -15,8 +17,7 @@ public interface Model<C extends Controller, T extends Entidad, K extends Serial
     T obtenerEntidad(K pk);
     void eliminarEntidad(T entidad);
     void actualizarEntidad(T entidad);
-    void realizarEntidad(T entidad);
-    List<T> listar(K type);
-    List<T> listDone(K valor);
+    List<T> listar();
+
 
 }

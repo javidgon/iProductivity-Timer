@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package view.task;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import javax.swing.event.ListDataListener;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
-import model.Model;
+import model.TaskModel;
 import model.TaskModelImpl;
 import model.entity.Task;
 
@@ -23,20 +22,16 @@ import model.entity.Task;
  */
 public class TaskTableAndComboModelAccomplished implements TableModel, ComboBoxModel {
 
-
     private List<Task> Tasks = new ArrayList<Task>();
     private List<TableModelListener> tableListeners = new ArrayList<TableModelListener>();
     private List<ListDataListener> dataListeners = new ArrayList<ListDataListener>();
-
     //Implementacion Singleton
-    private static TaskTableAndComboModel model=null;
+    private static TaskTableAndComboModel model = null;
 
-        public TaskTableAndComboModelAccomplished(String i){
-        Model modelo = new TaskModelImpl();
-        this.setTasks(modelo.listDone(i));
+    public TaskTableAndComboModelAccomplished() {
+        TaskModel modelo = new TaskModelImpl();
+        this.setTasks(modelo.listDone());
     }
-
-       
 
     public List<Task> getTasks() {
         return Tasks;

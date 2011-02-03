@@ -14,13 +14,15 @@ import model.Model;
  * @author Norberto Díaz-Díaz
  */
 public interface View <C extends Controller, M extends Model>{
+
+    // Interfaz genérica de la vista.
+
     C getController();
     void setController(C controller);
-
     M getModel();
     void setModel(M model);
 
     void dataModelChanged();
     void display();
-    public void fireBorraTaskGesture(String description);
+
 }

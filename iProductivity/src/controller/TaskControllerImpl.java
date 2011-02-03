@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
 
 import java.util.List;
@@ -18,24 +17,34 @@ import view.task.TaskView;
  */
 public class TaskControllerImpl extends AbstractControllerImp<TaskModel, TaskView, String> implements TaskController {
 
+    // Implementaciones del controlador TASK.
+    
     @Override
-    Entidad generaEntidad(List<String> datos) {
-        String description=datos.get(0);
-        String type=datos.get(1);
+    Task generaEntidad(List<String> datos) {
+        String description = datos.get(0);
+        String type = datos.get(1);
         String value = datos.get(2);
-        Task c=new TaskImpl(description,type, value);
+        Task c = new TaskImpl(description, type, value);
         return c;
     }
-
 
     @Override
-    Entidad generaEntidad(String pk) {
-        Task c=new TaskImpl(pk);
+    Task generaEntidad(String pk) {
+        Task c = new TaskImpl(pk);
         return c;
     }
 
+    public String leerCategoria(String id) {
+        return getModel().leerCategoria(id);
 
+    }
 
+    public void actualizarCategoria(String id, String name) {
+        getModel().actualizarCategoria(id, name);
+    }
 
-
+    public void realizarEntidadGesture(String pk) {
+        Task task = generaEntidad(pk);
+        getModel().realizarEntidad(task);
+    }
 }

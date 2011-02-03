@@ -14,8 +14,6 @@ package view.tasksAccomplished;
 import javax.swing.JTable;
 import model.TaskModelImpl;
 import model.entity.Task;
-import model.entity.TaskImpl;
-import view.task.TaskTableAndComboModel;
 import view.task.TaskTableAndComboModelAccomplished;
 import view.task.TaskView;
 
@@ -29,7 +27,7 @@ public class TasksAccomplishedViewImpl extends javax.swing.JPanel {
     private TaskTableAndComboModelAccomplished tableModelAccomplished;
     /** Creates new form TasksAccomplishedViewImpl */
     public TasksAccomplishedViewImpl(TaskView taskView) {
-        tableModelAccomplished = new TaskTableAndComboModelAccomplished("1");
+        tableModelAccomplished = new TaskTableAndComboModelAccomplished();
         initComponents();
         this.taskModel = new TaskModelImpl();
         this.taskView = taskView;
@@ -140,7 +138,7 @@ public class TasksAccomplishedViewImpl extends javax.swing.JPanel {
     }
       /**/
     private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
-        tableModelAccomplished = new TaskTableAndComboModelAccomplished("1");
+        tableModelAccomplished = new TaskTableAndComboModelAccomplished();
         this.jTableProximo1.setModel(tableModelAccomplished);
     }
 
@@ -190,6 +188,6 @@ public void display(){
     }
     public void refresh() {
 
-    tableModelAccomplished.setTasks(taskModel.listDone("1"));
+    tableModelAccomplished.setTasks(taskModel.listDone());
     }
 }

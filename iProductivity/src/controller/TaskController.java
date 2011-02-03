@@ -14,4 +14,9 @@ import view.task.TaskView;
  */
 public interface TaskController extends Controller<TaskModel, TaskView, String> {
 
+    // Interfaz concreta del controlador TASK.
+
+    String leerCategoria(String id);
+    void actualizarCategoria(String id, String name);
+    void realizarEntidadGesture(String pk);
 }

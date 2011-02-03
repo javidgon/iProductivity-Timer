@@ -1,0 +1,15 @@
+iProductivity Versión 1.0 Creado por José Vidal
+
+Características:
+iProductivity es una aplicación que te permite limitar el tiempo que dedicas a ciertas tarea. Para eso la aplicación utiliza un precio simbólico que el usuario introduce en la primera pantalla. Con este precio por hora, el sistema calculará el retorno simbólico al realizar una tarea, o el dinero que se está perdiendo cuando nos retrasamos en la realización.
+El panel principal permite la adición, el borrado o la actualización de tareas. Así como la modificación del tipo de la tarea o de su tiempo. Cabe resaltar, que no será posible modificar la descripción de una tarea una vez creada.
+
+A su vez, el sistema da la oportunidad de modificar las categorías disponibles en el apartado "Options". Esto no va a afectar en demasía a la aplicación, pero es útil para agilizar la introducción de datos.
+
+Por otro lado, también se va a disponer de una pestaña de Tareas completadas, en las que podremos ir viendo las tareas que hemos llevado a cabo con anterioridad. Estas tareas pueden ser borradas definitivamente pulsando el botón "Delete".
+
+La aplicación ha sido desarrollada utilizando el Modelo vista controlador y tipos genéricos en JAVA. Va a tener una sola entidad TASK, ya que no se ha creído oportuno dotar a las categorías de una entidad propia. Esto hace el código en algunas partes "denso", pero por otro lado nos existen tantas clases como hubieran sido necesarios si hubiéramos creado dos entidades en el MVC.
+
+Posibles mejoras:
+
+Una posible mejora clara es la implementación de un sistema de guardado de resultados en BD o fichero. Otra mejora importante podría ser la posibilidad de recuperar las tareas que están en Tareas completadas.

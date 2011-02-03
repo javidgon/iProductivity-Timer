@@ -8,12 +8,12 @@ import model.entity.Entidad;
 
 public interface GenericDAO<T extends Entidad, K extends Serializable> {
 
+    // Interfaz genérica DAO. Aquí vamos a encontrar los métodos compartidos.
+
     void create(T entidad);
     T read(K pk);
     void update(T entidad);
     void delete(T entidad);
-    void done(T entidad);
-    List<T> list(K Serializable);
-    List<T> listDone(K Serializable);
+    List<T> list();
 
 }

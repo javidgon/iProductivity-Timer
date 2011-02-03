@@ -8,11 +8,12 @@
  *
  * Created on 22-ene-2011, 15:43:57
  */
-
 package view.task;
 
+import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import model.entity.Task;
 
 /**
@@ -20,13 +21,18 @@ import model.entity.Task;
  * @author javidgon
  */
 public class TaskViewImplInternal extends javax.swing.JPanel {
- private TaskViewImpl view;
+
+    private TaskViewImpl view;
+    private CategoryComboModel combobox;
 
     /** Creates new form JPanelContacto */
     public TaskViewImplInternal(TaskViewImpl view) {
+        combobox = new CategoryComboModel();
         initComponents();
-        this.view=view;
+        this.view = view;
+
     }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -44,7 +50,6 @@ public class TaskViewImplInternal extends javax.swing.JPanel {
         jTextFieldDescription = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox();
-        jButton2 = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -85,18 +90,11 @@ public class TaskViewImplInternal extends javax.swing.JPanel {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Próximo", "Proyecto", "Algún día", "En espera" }));
-
-        jButton2.setText("Task accomplished");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jComboBox1.setModel(this.combobox);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "5", "10", "20", "30", "40", "50", "60", "90", "120", "180" }));
 
-        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 14));
         jLabel3.setForeground(new java.awt.Color(0, 0, 204));
         jLabel3.setText("Time:");
 
@@ -107,37 +105,31 @@ public class TaskViewImplInternal extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(9, 9, 9)
+                .add(20, 20, 20)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jLabel1)
+                    .add(jLabel2)
+                    .add(jLabel3))
+                .add(3, 3, 3)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
+                        .add(jComboBox2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jLabel4))
+                    .add(layout.createSequentialGroup()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                            .add(jComboBox1, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(jTextFieldDescription, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
+                        .add(36, 36, 36)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(layout.createSequentialGroup()
-                                .add(11, 11, 11)
-                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(jLabel1)
-                                    .add(jLabel2)
-                                    .add(jLabel3))
-                                .add(3, 3, 3)
-                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(layout.createSequentialGroup()
-                                        .add(jComboBox2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(jLabel4))
-                                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                                        .add(jComboBox1, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .add(jTextFieldDescription, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))))
-                            .add(layout.createSequentialGroup()
-                                .add(jButton1)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(jButton2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 149, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                        .add(480, 480, 480))
-                    .add(layout.createSequentialGroup()
-                        .add(jButtonAdd)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(jButtonUpdate)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(jButtonRemove)
-                        .addContainerGap(20, Short.MAX_VALUE))))
+                                .add(jButtonAdd)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(jButtonUpdate)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(jButtonRemove))
+                            .add(jButton1))))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -145,92 +137,81 @@ public class TaskViewImplInternal extends javax.swing.JPanel {
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jTextFieldDescription, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel1))
-                .add(14, 14, 14)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel2)
-                    .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(16, 16, 16)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel3)
-                    .add(jComboBox2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel4))
+                    .add(jLabel1)
+                    .add(jButtonAdd)
+                    .add(jButtonUpdate)
+                    .add(jButtonRemove))
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
-                        .add(36, 36, 36)
+                        .add(14, 14, 14)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(jButton1)
-                            .add(jButton2)))
+                            .add(jLabel2)
+                            .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(16, 16, 16)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel3)
+                            .add(jComboBox2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jLabel4)))
                     .add(layout.createSequentialGroup()
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(jButtonAdd)
-                            .add(jButtonUpdate)
-                            .add(jButtonRemove))))
-                .add(20, 20, 20))
+                        .add(jButton1)))
+                .add(129, 129, 129))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         // TODO add your handling code here:
-    try {                if(!view.getLabelCounter().getText().equals("0")){
-                view.getLabelCongratulations().setText("Tarea creada satisfactoriamente.");
-                view.fireNuevoTaskGesture(this.jTextFieldDescription.getText(),(String) this.jComboBox1.getSelectedItem(), (String) this.jComboBox2.getSelectedItem());
-                                    }else{
+        try {
+            if (!view.getjLabelCounter().getText().equals("0") && !this.getjTextFieldDescription().equals("") && !this.jComboBox1.getSelectedItem().equals("")) {
+                view.getjLabelCongratulations().setText("Tarea creada satisfactoriamente.");
+                view.fireNuevoTaskGesture(this.jTextFieldDescription.getText(), (String) this.jComboBox1.getSelectedItem(), (String) this.jComboBox2.getSelectedItem());
+                view.refresh();
+            } else {
 
-            view.getLabelCongratulations().setText("Necesita establecer un tiempo primero.");
+                view.getjLabelCongratulations().setText("Se ha producido un error. Tiempo? Espacio sin rellenar?.");
             }
-    } catch (RuntimeException e) {
-        javax.swing.JOptionPane.showMessageDialog(new JInternalFrame(), e, "Warning", JOptionPane.WARNING_MESSAGE);
-    }
+        } catch (RuntimeException e) {
+            javax.swing.JOptionPane.showMessageDialog(new JInternalFrame(), e, "Warning", JOptionPane.WARNING_MESSAGE);
+        }
 
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButtonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveActionPerformed
-        try {                if(!view.getLabelCounter().getText().equals("0")){
-         view.getLabelCongratulations().setText("Tarea eliminada satisfactoriamente.");
-        view.fireBorraTaskGesture(this.jTextFieldDescription.getText());
-                            }else{
+        try {
+            if (!view.getjLabelCounter().getText().equals("0")) {
+                view.getjLabelCongratulations().setText("Tarea eliminada satisfactoriamente.");
+                view.fireBorraTaskGesture(this.jTextFieldDescription.getText());
+                view.refresh();
+            } else {
 
-            view.getLabelCongratulations().setText("Necesita establecer un tiempo primero.");
+                view.getjLabelCongratulations().setText("Necesita establecer un tiempo primero.");
             }
-    } catch (RuntimeException e) {
-        javax.swing.JOptionPane.showMessageDialog(new JInternalFrame(), e, "Warning", JOptionPane.WARNING_MESSAGE);
-    }
+        } catch (RuntimeException e) {
+            javax.swing.JOptionPane.showMessageDialog(new JInternalFrame(), e, "Warning", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jButtonRemoveActionPerformed
 
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
-         try {                if(!view.getLabelCounter().getText().equals("0")){
-                     view.getLabelCongratulations().setText("Tarea actualizada satisfactoriamente");
-        view.fireActualizaTaskGesture(this.jTextFieldDescription.getText(), (String)this.jComboBox1.getSelectedItem(), (String)this.jComboBox2.getSelectedItem());
-                            }else{
+        try {
+            if (!view.getjLabelCounter().getText().equals("0")&& !this.getjTextFieldDescription().equals("") && !this.jComboBox1.getSelectedItem().equals("")) {
+                view.getjLabelCongratulations().setText("Tarea actualizada satisfactoriamente");
+                view.fireActualizaTaskGesture(this.jTextFieldDescription.getText(), (String) this.jComboBox1.getSelectedItem(), (String) this.jComboBox2.getSelectedItem());
+                view.refresh();
+            } else {
 
-            view.getLabelCongratulations().setText("Necesita establecer un tiempo primero.");
+                view.getjLabelCongratulations().setText("Se ha producido un error. Tiempo? Espacio sin rellenar?.");
             }
-    } catch (RuntimeException e) {
-        javax.swing.JOptionPane.showMessageDialog(new JInternalFrame(), e, "Warning", JOptionPane.WARNING_MESSAGE);
-    }
+        } catch (RuntimeException e) {
+            javax.swing.JOptionPane.showMessageDialog(new JInternalFrame(), e, "Warning", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         view.refresh();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        view.getLabelCongratulations().setText("Enhorabuena!");
-        view.fireRealizarTaskGesture(this.jTextFieldDescription.getText());
-        Float before = Float.parseFloat(view.getjLabelEarnings().getText());
-        System.out.println(before);
-        String nuevo = (String)this.jComboBox2.getSelectedItem();
-        Float entero = Float.parseFloat(nuevo);
-        view.getjLabelEarnings().setText(String.valueOf(before + (entero)*(Float.parseFloat(view.getjLabelMinutes().getText()))/60));
-
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonRemove;
     private javax.swing.JButton jButtonUpdate;
@@ -242,9 +223,26 @@ public class TaskViewImplInternal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTextFieldDescription;
     // End of variables declaration//GEN-END:variables
- public void setTask(Task task) {
+
+    public void setTask(Task task) {
         this.jTextFieldDescription.setText(task.getDescription());
         this.jComboBox1.setSelectedItem(task.getType());
         this.jComboBox2.setSelectedItem(task.getValue());
     }
+
+    public void refresh() {
+
+        combobox.setTasks(view.getModel().listCategories());
+    }
+
+    public JTextField getjTextFieldDescription() {
+        return jTextFieldDescription;
+    }
+
+    public JComboBox getjComboBox2() {
+        return jComboBox2;
+    }
+
+
+
 }

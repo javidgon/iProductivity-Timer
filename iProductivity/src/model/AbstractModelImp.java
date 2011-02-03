@@ -9,6 +9,8 @@ import model.persistence.GenericDAO;
 
 public abstract class AbstractModelImp<C extends Controller, T extends Entidad, K extends Serializable> implements Model<C,T,K> {
 
+    // Implementación abstracta del modelo.
+
     private C controller;
 
     public C getController() {
@@ -43,24 +45,8 @@ public abstract class AbstractModelImp<C extends Controller, T extends Entidad, 
         controller.fireDataModelChanged();
     }
 
-        public void realizarEntidad(T entidad) {
-        GenericDAO dao=obtenerImplementacionDAO();
-        dao.done(entidad);
-        controller.fireDataModelChanged();
-    }
-
-    public List<T> listar(String type) {
-        GenericDAO dao=obtenerImplementacionDAO();
-        return dao.list(type);
-
-    }
-    public List<T> listDone(String i) {
-        GenericDAO dao=obtenerImplementacionDAO();
-        return dao.listDone(i);
 
 
-    }
-    
 
     abstract GenericDAO obtenerImplementacionDAO();
 

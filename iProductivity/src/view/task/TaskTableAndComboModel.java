@@ -31,9 +31,9 @@ public class TaskTableAndComboModel implements TableModel, ComboBoxModel {
     //Implementacion Singleton
     private static TaskTableAndComboModel model=null;
 
-    public TaskTableAndComboModel(String type){
+    public TaskTableAndComboModel(){
         Model modelo = new TaskModelImpl();
-        this.setTasks(modelo.listar(type));
+        this.setTasks(modelo.listar());
     }
 
    
@@ -61,7 +61,7 @@ public class TaskTableAndComboModel implements TableModel, ComboBoxModel {
     }
 
     public int getColumnCount() {
-        return 2; //ya que tendremos tres valores a mostrar por contacto
+        return 3; //ya que tendremos tres valores a mostrar por contacto
     }
 
     public String getColumnName(int columnIndex) {
@@ -70,7 +70,10 @@ public class TaskTableAndComboModel implements TableModel, ComboBoxModel {
             case 0:
                 name = "Description";
                 break;
-            case 1:
+             case 1:
+                name = "Type";
+                break;
+            case 2:
                 name = "Time";
                 break;
         }
@@ -93,6 +96,9 @@ public class TaskTableAndComboModel implements TableModel, ComboBoxModel {
                 value = contacto.getDescription();
                 break;
             case 1:
+                value = contacto.getType();
+                break;
+            case 2:
                 value = contacto.getValue();
                 break;
         }

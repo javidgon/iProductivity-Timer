@@ -11,6 +11,8 @@ import model.Model;
  */
 public abstract class AbstractViewImp <C extends Controller, M extends Model> extends javax.swing.JPanel implements View<C,M>{
 
+    // Clase abstracta y compartida de la vista.
+
     C controller;
     M model;
 

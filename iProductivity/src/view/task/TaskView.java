@@ -2,42 +2,36 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package view.task;
 
 import controller.TaskController;
 import javax.swing.JLabel;
 import model.TaskModel;
 import view.*;
+
 /**
  *
  * @author javidgon
  */
-public interface TaskView extends View<TaskController, TaskModel>{
+public interface TaskView extends View<TaskController, TaskModel> {
+
+    // Interfaz específica de la entidad TASK.
 
     public void contador(final int valor);
 
     public void ticks(final float money);
 
+    public void fireBorraTaskGesture(String description);
+
     public TaskViewImplInternal getPaneltask();
 
-    public TaskTableAndComboModel getTableModelProyecto() ;
     public JLabel getjLabelMinutes();
-    public void setjLabel1(JLabel jLabel1);
 
-    public void setjLabel2(JLabel jLabel2);
+    public JLabel getjLabelCongratulations();
 
-    public void setjLabel3(JLabel jLabel3);
+    public JLabel getjLabelCounter();
 
-    public void setjLabel4(JLabel jLabel4);
+    public void refresh();
 
-    public JLabel getjLabel1();
-
-    public JLabel getjLabel2();
-
-    public JLabel getjLabel3();
-
-    public JLabel getjLabel4();
-
-    public void init();
+    public void setValor(float valor);
 }
